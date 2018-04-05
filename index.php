@@ -1,10 +1,8 @@
 <?php
 
-require 'include/text.php';
+require 'include/sample_text.php';
+require 'include/explode_text.php';
 
-$clean_string = preg_replace('/[^A-Za-z0-9\-]/', " ", $string);
-$explode = explode(' ', $clean_string);
-$explode_fixed = array_filter($explode);
 $soundex_element = array();
 foreach($explode_fixed as $element) {
   $soundex_element[] = soundex($element);
@@ -16,5 +14,12 @@ foreach($top_soundex as $single) {
 echo ("<pre>");
 echo $single;
 echo ("</pre>");
+}
+
+$number_of_elements = count($explode_fixed);
+for ($i=0; $i < $number_of_elements; $i++) { 
+    echo("<pre>");
+    echo "Word: " . $explode_fixed[$i] . " is a Soundex " . soundex($explode_fixed[$i]);
+    echo("</pre>");
 }
 ?>

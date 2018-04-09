@@ -9,6 +9,9 @@
 
 // To Be Done
 
-- Interface.
 - Convert Top 5 Soundex codes to words.
-- Proper Layout of the code.
+- Impelement PHPUnit.
+
+// Known bugs
+
+- Sorting algorithm does not work as intended.

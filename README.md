@@ -2,15 +2,15 @@
 
 // Functional Part
 
-- Read text from a string.
-- Convert words from text to array.
-- Convert array to Soundex.
-- Return Top 5 Used Soundex codes.
+- Reads text from a string.
+- Converts text from string to array.
+- Converts array to Soundex.
+- Returns Top 5 used Soundex codes.
 
 // To Be Done
 
-- Convert Top 5 Soundex codes to words.
-- Impelement PHPUnit.
+- Convert Top 5 Soundex ID's to Unique words accordingly to the sound.
+- Implement PHPUnit.
 
 // Known bugs
 

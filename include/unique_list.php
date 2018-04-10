@@ -1,29 +1,35 @@
 <?php
 
-foreach ($soundex as $key => $row){
-    $top_index_id = 0;
-    $top_value_amount = count($top_value);
+function top_founder($soundex_array, $most_used, $times_used, $top_place){
+    $storage = array();
+    foreach ($soundex_array as $key => $row){
+        $top_index_id = 0;
+ 
+        $array_soundex[$key] = $row['soundex'];
+        $array_text[$key] = $row['text'];
 
-    $max_value = array_count_values($soundex_element);
-    rsort($max_value);
-
-    $array_soundex[$key] = $row['soundex'];
-    $array_text[$key] = $row['text'];
-
-    if($array_soundex[$key] == $top_value[$top_index_id]){
-        if ($top_index_id != $top_value_amount) {
+        if($array_soundex[$key] === $most_used[$top_place]){
+            if ($top_index_id < $times_used[$most_used[$top_place]]) {
                 $top_soundex_id = array('id' => $array_soundex[$key]);
                 $top_soundex_name = array('name' => $array_text[$key]);
                 $top_index_id++;
-                echo "<pre>";
-                echo "New element found = " . $top_soundex_name['name'] . " with Soundex id = " . $top_soundex_id['id']; 
-                echo "</pre>";
+                array_push($storage, $top_soundex_name['name']);
+            }
+            else if($top_index_id >= $times_used[$most_used[$top_place]]){
+                $top_place++;
+                $top_index_id = 0;
+            }
         }
+    }
+
+    $top = array_unique($storage);
+    foreach ($top as $single) {
+    echo "<pre>";
+    echo $single;
+    echo "</pre>";
     }
 }
 
-/*
- if(in_array($array_soundex[$key], $top_soundex_name)){
-                echo "Element is already in top array";
-            }
-*/
+for ($i=0; $i < 3 ; $i++) { 
+    top_founder($soundex, $top_value, $values, $i);
+}

@@ -6,12 +6,12 @@
 - Converts text from string to array.
 - Converts array to Soundex.
 - Returns Top 5 used Soundex codes.
+- Returns Top 5 unique words accordingly to most used Soundex elements.
 
 // To Be Done
 
-- Convert Top 5 Soundex ID's to Unique words accordingly to the sound.
 - Implement PHPUnit.
 
 // Known bugs
 
-- Sorting algorithm does not work as intended.
+- Sorting algorithm may not show top 5 with different texts.

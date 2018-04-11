@@ -23,13 +23,25 @@ function top_founder($soundex_array, $most_used, $times_used, $top_place){
     }
 
     $top = array_unique($storage);
-    foreach ($top as $single) {
-    echo "<pre>";
-    echo $single;
-    echo "</pre>";
-    }
+
+    return $top;
 }
 
-for ($i=0; $i < 3 ; $i++) { 
-    top_founder($soundex, $top_value, $values, $i);
+for ($i=0; $i < 5 ; $i++) { 
+    $data[] = top_founder($soundex, $top_value, $values, $i);
+}
+
+$i = 0;
+
+foreach ($data as $key => $value) {
+    foreach ($value as $key2 => $value2) {
+        if ($i < 5) {
+            echo "<pre>";
+            echo $value2;
+            echo "</pre>";
+            $i++;
+        }
+        else
+            break;
+    }
 }

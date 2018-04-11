@@ -1,6 +1,5 @@
 <?php 
 
-$soundex_element = array();
 foreach($explode_fixed as $element) {
   $soundex_element[] = soundex($element);
 }

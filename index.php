@@ -1,7 +1,24 @@
 <?php
 
-require 'include/sample_text.php';
-require 'include/explode_text.php';
-require 'include/soundex_converter.php';
-require 'include/top_value.php';
-require 'include/unique_list.php';
+require 'include/TextController.php';
+require 'include/SoundexController.php';
+require 'include/SortingController.php';
+
+$test_text = new SortingController();
+
+$test_text->set_text('Lithuania (UK and US: Listeni/ˌlɪθuːˈeɪniə/,[11][12][13] Lithuanian: Lietuva
+    [lʲɪɛtʊˈvɐ]), officially the Republic of Lithuania (Lithuanian: Lietuvos
+    Respublika), is a country in Northern Europe.[14] One of the three Baltic
+    states, it is situated along the southeastern shore of the Baltic Sea, to the
+    east of Sweden and Denmark. It is bordered by Latvia to the north, Belarus to
+    the east and south, Poland to the south, and Kaliningrad Oblast (a Russian
+    exclave) to the southwest. Lithuania has an estimated population of 2.9 million
+    people as of 2015, and its capital and largest city is Vilnius. Lithuanians are
+    a Baltic people. The official language, Lithuanian, along with Latvian, is one
+    of only two living languages in the Baltic branch of the Indo-European language
+    family.');
+
+$test_text->fix_text();
+$test_text->convert_soundex();
+$test_text->sort();
+$test_text->get_sorted();

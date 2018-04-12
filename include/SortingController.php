@@ -1,19 +1,19 @@
 <?php
 
+require_once 'include/SoundexController.php';
+
 	class SortingController extends SoundexController
 	{
-		var $result;
+		var $sorted, $top_result;
 		function sort(){
 
 			$values = array_count_values($this->get_converted());
 			arsort($values);
 			$popular = array_slice(array_keys($values), 0, 5, true);
 
-			$index = 0;
-
 			foreach ($popular as $key) {
-			    $top_value[$index] = $key;
-			    $index++;
+			    $top_value[] = $key;
+
 			}
 
 				function top_founder($soundex_array, $most_used, $times_used, $top_place){
@@ -47,24 +47,32 @@
 			    $data[] = top_founder($this->get_converted_array(), $top_value, $values, $i);
 			}
 
-			$this->result = $data;
+		$this->sorted = $data;
 			
 		}
-		function get_sorted(){
+
+		function sorted_top(){
 
 			$i = 0;
 
-			foreach ($this->result as $key => $value) {
+			foreach ($this->sorted as $key => $value) {
 			    foreach ($value as $key2 => $value2) {
 			        if ($i < 5) {
-			            echo "<pre>";
-			            echo $value2;
-			            echo "</pre>";
+			            $result[] = $value2;
 			            $i++;
 			        }
 			        else
 			            break;
 			    }
 			}
+
+		$this->sorted_top = $result;
+
+		}
+
+		function get_top(){
+
+			return $this->sorted_top;
+		
 		}
 	}

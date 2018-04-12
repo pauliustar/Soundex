@@ -1,5 +1,7 @@
 <?php
 
+require_once 'include/TextController.php';
+
 	class SoundexController extends TextController
 	{
 		

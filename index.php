@@ -1,8 +1,6 @@
 <?php
 
-require 'include/TextController.php';
-require 'include/SoundexController.php';
-require 'include/SortingController.php';
+require_once 'include/SortingController.php';
 
 $test_text = new SortingController();
 
@@ -21,4 +19,23 @@ $test_text->set_text('Lithuania (UK and US: Listeni/ˌlɪθuːˈeɪniə/,[11][12
 $test_text->fix_text();
 $test_text->convert_soundex();
 $test_text->sort();
-$test_text->get_sorted();
+$test_text->sorted_top();
+
+?>
+
+<html>
+<head>
+    <title>Soundex</title>
+</head>
+<body>
+
+<h1>Top 5</h1>
+ 
+<?php foreach ($test_text->get_top() as $key) : ?>
+<li>
+    <?= $key ?>
+</li>
+<?php endforeach; ?>
+
+</body>
+</html>
